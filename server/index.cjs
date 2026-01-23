@@ -451,7 +451,7 @@ app.use('/api', (req, res) => {
  * SPA 라우팅 처리 (모든 비 API 요청을 index.html로)
  * React Router가 클라이언트 사이드에서 라우팅을 처리하도록 함
  */
-app.get('*', (req, res) => {
+app.get(/(.*)/, (req, res) => {
   res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
