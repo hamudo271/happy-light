@@ -66,7 +66,7 @@ function Greeting() {
           >
             <div className="greeting-image">
               <img 
-                src="/대표사진.jpeg" 
+                src="/ceo-profile.jpeg" 
                 alt="대표이사"
               />
               <div className="greeting-image-label">
