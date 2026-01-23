@@ -49,6 +49,15 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // ===========================================
+// 정적 파일 제공 (React Frontend)
+// ===========================================
+
+const path = require('path');
+
+// dist 폴더의 정적 파일 제공 - 최우선 순위로 처리
+app.use(express.static(path.join(__dirname, '../dist')));
+
+// ===========================================
 // 보안 미들웨어 설정
 // ===========================================
 
@@ -66,15 +75,6 @@ app.use(helmet.contentSecurityPolicy({
     scriptSrc: ["'self'"],                                    // 스크립트는 같은 도메인만
   },
 }));
-
-// ===========================================
-// 정적 파일 제공 (React Frontend)
-// ===========================================
-
-const path = require('path');
-
-// dist 폴더의 정적 파일 제공 - 보안 미들웨어보다 먼저 처리하여 차단 방지
-app.use(express.static(path.join(__dirname, '../dist')));
 
 // ===========================================
 // IP 기반 국가 차단 미들웨어
@@ -99,6 +99,12 @@ const geoBlockMiddleware = (req, res, next) => {
   
   // localhost는 항상 통과
   if (clientIP === '127.0.0.1' || clientIP === '::1' || clientIP === '::ffff:127.0.0.1') {
+    return next();
+  }
+
+  // 정적 파일(Assets) 요청은 항상 통과 (CSS, JS, 이미지 등)
+  // express.static에서 처리되지 않았더라도 차단하지 않음 (404 등을 위해)
+  if (req.path.startsWith('/assets/') || req.path.startsWith('/vite.svg')) {
     return next();
   }
 
