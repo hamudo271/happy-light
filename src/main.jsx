@@ -42,7 +42,7 @@ import { ThemeProvider } from './context/ThemeContext'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider>
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <BrowserRouter>
         <App />
       </BrowserRouter>
     </ThemeProvider>
