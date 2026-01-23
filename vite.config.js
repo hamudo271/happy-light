@@ -26,7 +26,7 @@ import react from '@vitejs/plugin-react'
 
 // Vite 설정 내보내기
 export default defineConfig({
-  base: '/happylight/',
+  base: '/',
 
   // 플러그인 목록
   plugins: [
