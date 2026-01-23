@@ -1,6 +1,6 @@
 /**
  * =============================================================================
- * server/index.js - 백엔드 서버 메인 파일
+ * server/index.cjs - 백엔드 서버 메인 파일
  * =============================================================================
  * 
  * 이 파일은 Express.js 기반 백엔드 서버입니다.
@@ -38,6 +38,7 @@ const rateLimit = require('express-rate-limit'); // 요청 횟수 제한
 const geoip = require('geoip-lite');          // IP로 국가 확인
 const nodemailer = require('nodemailer');     // 이메일 전송
 const { body, validationResult } = require('express-validator'); // 입력값 검증
+const path = require('path');                 // 경로 처리
 
 // .env 파일에서 환경 변수 불러오기
 require('dotenv').config();
@@ -49,69 +50,72 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // ===========================================
-// 정적 파일 제공 (React Frontend)
+// 기본 미들웨어 설정 (로그 및 파싱)
 // ===========================================
 
-const path = require('path');
+// CORS 설정
+const allowedOrigins = [
+  'http://localhost:5173',   // Vite 개발 서버
+  'http://localhost:3000',   // 대체 개발 서버
+  process.env.FRONTEND_URL,   // 운영 프론트엔드 URL
+  'https://happy-light-production-ac2a.up.railway.app' // Railway URL
+].filter(Boolean);
 
-// dist 폴더의 정적 파일 제공 - 최우선 순위로 처리
-app.use(express.static(path.join(__dirname, '../dist')));
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      console.log(`🚫 CORS 차단: ${origin}`);
+      callback(new Error('CORS 정책에 의해 차단됨'));
+    }
+  },
+  credentials: true
+}));
 
-// ===========================================
-// 보안 미들웨어 설정
-// ===========================================
-
-/**
- * Helmet - 보안 HTTP 헤더 설정
- * XSS 공격, 클릭재킹 등 다양한 보안 위협으로부터 보호
- */
+// Helmet 보안 헤더
 app.use(helmet());
 app.use(helmet.contentSecurityPolicy({
   directives: {
-    defaultSrc: ["'self'"],                                    // 기본 리소스는 같은 도메인만 허용
-    styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],  // 스타일 허용 도메인
-    fontSrc: ["'self'", "https://fonts.gstatic.com"],         // 폰트 허용 도메인
-    imgSrc: ["'self'", "data:", "https:"],                    // 이미지 허용
-    scriptSrc: ["'self'"],                                    // 스크립트는 같은 도메인만
+    defaultSrc: ["'self'"],
+    styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+    fontSrc: ["'self'", "https://fonts.gstatic.com"],
+    imgSrc: ["'self'", "data:", "https:"],
+    scriptSrc: ["'self'"],
+    connectSrc: ["'self'", ...allowedOrigins], 
   },
 }));
 
+// Body Parsing
+app.use(express.json({ limit: '10kb' }));
+app.use(express.urlencoded({ extended: true, limit: '10kb' }));
+
 // ===========================================
-// IP 기반 국가 차단 미들웨어
+// IP 기반 국가 차단 미들웨어 (Static 보다 먼저)
 // ===========================================
 
-// 완전 차단할 국가 코드
-const blockedCountries = ['CN', 'HK']; // 중국, 홍콩
+const blockedCountries = ['CN', 'HK']; // 차단 국가
+const suspiciousCountries = ['RU', 'KP', 'IR']; // 요주의 국가
 
-// 강화된 제한을 적용할 국가 (차단은 아님)
-const suspiciousCountries = ['RU', 'KP', 'IR']; // 러시아, 북한, 이란
-
-/**
- * 국가별 접근 제어 미들웨어
- * 클라이언트 IP를 확인하여 특정 국가 차단
- */
 const geoBlockMiddleware = (req, res, next) => {
-  // 실제 클라이언트 IP 가져오기 (프록시 뒤에 있을 경우)
   const clientIP = req.headers['x-forwarded-for']?.split(',')[0] || 
                    req.headers['x-real-ip'] || 
                    req.connection.remoteAddress || 
                    req.socket.remoteAddress;
   
-  // localhost는 항상 통과
+  // localhost 통과
   if (clientIP === '127.0.0.1' || clientIP === '::1' || clientIP === '::ffff:127.0.0.1') {
     return next();
   }
 
-  // 정적 파일(Assets) 요청은 항상 통과 (CSS, JS, 이미지 등)
-  // express.static에서 처리되지 않았더라도 차단하지 않음 (404 등을 위해)
-  if (req.path.startsWith('/assets/') || req.path.startsWith('/vite.svg')) {
+  // 정적 자원 예외 처리 (매우 중요)
+  if (req.path.startsWith('/assets/') || req.path.startsWith('/vite.svg') || req.path.includes('.')) {
+    // console.log(`⏩ 정적 자원 접근 허용: ${req.path}`); // 디버깅용, 너무 많으면 주석 처리
     return next();
   }
 
-  // IP로 국가 정보 조회
   const geo = geoip.lookup(clientIP);
   
-  // 차단 국가인 경우 403 에러 반환
   if (geo && blockedCountries.includes(geo.country)) {
     console.log(`🚫 차단됨: ${geo.country} (IP: ${clientIP})`);
     return res.status(403).json({
@@ -121,12 +125,10 @@ const geoBlockMiddleware = (req, res, next) => {
     });
   }
 
-  // 의심스러운 국가는 로그만 기록 (차단하지 않음)
   if (geo && suspiciousCountries.includes(geo.country)) {
     console.log(`⚠️ 의심 접근: ${geo.country} (IP: ${clientIP})`);
   }
 
-  // 요청 객체에 IP 정보 저장 (이후 미들웨어에서 사용)
   req.clientIP = clientIP;
   req.clientGeo = geo;
   next();
@@ -135,381 +137,135 @@ const geoBlockMiddleware = (req, res, next) => {
 app.use(geoBlockMiddleware);
 
 // ===========================================
-// DDoS 방어 - Rate Limiting (요청 횟수 제한)
+// 정적 파일 제공 (Express Static)
 // ===========================================
 
-/**
- * 전역 Rate Limiter
- * 모든 요청에 적용 - 15분에 100개 요청으로 제한
- */
+// dist 경로를 __dirname 기준으로 확실하게 잡음s
+const distPath = path.resolve(__dirname, '../dist');
+console.log(`📂 정적 파일 서빙 경로: ${distPath}`);
+
+// 정적 파일 서빙
+app.use(express.static(distPath));
+
+
+// ===========================================
+// Rate Limiting (API 보호)
+// ===========================================
+
 const globalLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000,  // 15분
-  max: 100,                   // IP당 최대 100 요청
-  message: {
-    success: false,
-    message: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.',
-    code: 'RATE_LIMITED'
-  },
-  standardHeaders: true,
-  legacyHeaders: false,
-  handler: (req, res) => {
-    console.log(`🛑 Rate Limited: ${req.clientIP}`);
-    res.status(429).json({
-      success: false,
-      message: '요청이 너무 많습니다. 잠시 후 다시 시도해주세요.',
-      code: 'RATE_LIMITED'
-    });
-  }
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  message: { success: false, message: '요청이 너무 많습니다.' }
 });
 
-/**
- * API 전용 Rate Limiter (더 엄격)
- * 1분에 10개 요청으로 제한
- */
 const apiLimiter = rateLimit({
-  windowMs: 60 * 1000,  // 1분
-  max: 10,              // IP당 1분에 최대 10 요청
-  message: {
-    success: false,
-    message: 'API 요청이 너무 많습니다. 천천히 시도해주세요.',
-    code: 'API_RATE_LIMITED'
-  }
+  windowMs: 60 * 1000,
+  max: 10,
+  message: { success: false, message: 'API 요청 과부하.' }
 });
 
-/**
- * 문의 폼 전용 Rate Limiter (스팸 방지)
- * 1시간에 5개로 제한
- */
 const contactLimiter = rateLimit({
-  windowMs: 60 * 60 * 1000,  // 1시간
-  max: 5,                     // IP당 시간당 최대 5개 문의
-  message: {
-    success: false,
-    message: '문의가 너무 많습니다. 1시간 후에 다시 시도해주세요.',
-    code: 'CONTACT_RATE_LIMITED'
-  }
+  windowMs: 60 * 60 * 1000,
+  max: 5,
+  message: { success: false, message: '문의 횟수 초과.' }
 });
 
-/**
- * 해외 IP 전용 Rate Limiter
- * 한국 IP보다 더 엄격하게 제한
- */
-const foreignLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000,  // 15분
-  max: 30,                    // 해외 IP는 30개로 제한
-  skip: (req) => {
-    // 한국 IP는 이 제한 건너뛰기
-    return req.clientGeo && req.clientGeo.country === 'KR';
-  },
-  message: {
-    success: false,
-    message: '해당 지역에서의 요청 제한을 초과했습니다.',
-    code: 'FOREIGN_RATE_LIMITED'
-  }
-});
-
-// Rate Limiter 적용
 app.use(globalLimiter);
-app.use(foreignLimiter);
 
 // ===========================================
-// 기본 미들웨어
+// 이메일 설정
 // ===========================================
 
-/**
- * CORS 설정
- * 허용된 도메인에서만 API 호출 가능
- */
-const allowedOrigins = [
-  'http://localhost:5173',   // Vite 개발 서버
-  'http://localhost:3000',   // 대체 개발 서버
-  process.env.FRONTEND_URL   // 운영 프론트엔드 URL
-].filter(Boolean);  // undefined/null 제거
-
-app.use(cors({
-  origin: (origin, callback) => {
-    // 서버간 요청 또는 허용된 도메인
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      console.log(`🚫 CORS 차단: ${origin}`);
-      callback(new Error('CORS 정책에 의해 차단됨'));
-    }
-  },
-  credentials: true  // 쿠키 포함 요청 허용
-}));
-
-// JSON 요청 본문 파싱 (크기 제한: 10KB)
-app.use(express.json({ limit: '10kb' }));
-
-// URL 인코딩된 본문 파싱
-app.use(express.urlencoded({ extended: true, limit: '10kb' }));
-
-// ===========================================
-// 이메일 전송 설정
-// ===========================================
-
-/**
- * Nodemailer 설정
- * Gmail SMTP를 사용하여 이메일 전송
- * 
- * ⚠️ Gmail 사용 시 '앱 비밀번호'를 사용해야 합니다.
- * 일반 비밀번호는 보안상 차단됩니다.
- */
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.EMAIL_USER,  // 발신 이메일
-    pass: process.env.EMAIL_PASS   // 앱 비밀번호 (16자리)
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
   }
 });
 
-/**
- * 문의 이메일 전송 함수
- * 
- * @param {Object} data - 문의 폼 데이터
- * @returns {Promise} - 이메일 전송 결과
- */
 const sendContactEmail = async (data) => {
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: process.env.ADMIN_EMAIL || process.env.EMAIL_USER,
-    subject: `[해피라이트] 새로운 문의 - ${data.eventType}`,
+    subject: `[해피라이트] 문의 - ${data.eventType}`,
     html: `
-      <div style="font-family: 'Noto Sans KR', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-        <div style="background: linear-gradient(135deg, #FF6B35, #FFD700); padding: 30px; border-radius: 16px 16px 0 0;">
-          <h1 style="color: white; margin: 0; font-size: 24px;">📬 새로운 문의가 접수되었습니다</h1>
-        </div>
-        
-        <div style="background: #f8f9fa; padding: 30px; border-radius: 0 0 16px 16px;">
-          <table style="width: 100%; border-collapse: collapse;">
-            <tr>
-              <td style="padding: 12px 0; border-bottom: 1px solid #dee2e6; font-weight: bold; width: 120px;">이름</td>
-              <td style="padding: 12px 0; border-bottom: 1px solid #dee2e6;">${data.name}</td>
-            </tr>
-            <tr>
-              <td style="padding: 12px 0; border-bottom: 1px solid #dee2e6; font-weight: bold;">회사/기관</td>
-              <td style="padding: 12px 0; border-bottom: 1px solid #dee2e6;">${data.company || '-'}</td>
-            </tr>
-            <tr>
-              <td style="padding: 12px 0; border-bottom: 1px solid #dee2e6; font-weight: bold;">연락처</td>
-              <td style="padding: 12px 0; border-bottom: 1px solid #dee2e6;">${data.phone}</td>
-            </tr>
-            <tr>
-              <td style="padding: 12px 0; border-bottom: 1px solid #dee2e6; font-weight: bold;">이메일</td>
-              <td style="padding: 12px 0; border-bottom: 1px solid #dee2e6;">${data.email || '-'}</td>
-            </tr>
-            <tr>
-              <td style="padding: 12px 0; border-bottom: 1px solid #dee2e6; font-weight: bold;">행사 유형</td>
-              <td style="padding: 12px 0; border-bottom: 1px solid #dee2e6;">
-                <span style="background: #FF6B35; color: white; padding: 4px 12px; border-radius: 20px; font-size: 14px;">
-                  ${data.eventType}
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <td style="padding: 12px 0; border-bottom: 1px solid #dee2e6; font-weight: bold;">행사 예정일</td>
-              <td style="padding: 12px 0; border-bottom: 1px solid #dee2e6;">${data.date || '-'}</td>
-            </tr>
-            <tr>
-              <td style="padding: 12px 0; border-bottom: 1px solid #dee2e6; font-weight: bold;">예상 인원</td>
-              <td style="padding: 12px 0; border-bottom: 1px solid #dee2e6;">${data.participants || '-'}</td>
-            </tr>
-            <tr>
-              <td style="padding: 12px 0; border-bottom: 1px solid #dee2e6; font-weight: bold;">예산</td>
-              <td style="padding: 12px 0; border-bottom: 1px solid #dee2e6;">${data.budget || '-'}</td>
-            </tr>
-          </table>
-          
-          <div style="margin-top: 20px; padding: 20px; background: white; border-radius: 12px;">
-            <h3 style="margin: 0 0 12px 0; color: #333;">💬 문의 내용</h3>
-            <p style="margin: 0; line-height: 1.8; color: #555;">${data.message.replace(/\n/g, '<br>')}</p>
-          </div>
-          
-          <div style="margin-top: 20px; padding: 16px; background: #e8f4fd; border-radius: 12px; font-size: 14px; color: #666;">
-            <strong>접수 정보</strong><br>
-            • 접수 시간: ${new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' })}<br>
-            • IP: ${data.clientIP || 'Unknown'}<br>
-            • 지역: ${data.clientGeo ? `${data.clientGeo.country}, ${data.clientGeo.city || 'Unknown'}` : 'Unknown'}
-          </div>
-        </div>
-      </div>
+      <h2>새 문의 접수</h2>
+      <p>이름: ${data.name}</p>
+      <p>연락처: ${data.phone}</p>
+      <p>유형: ${data.eventType}</p>
+      <p>내용: ${data.message}</p>
+      <p>IP: ${data.clientIP}</p>
     `
   };
-
   return transporter.sendMail(mailOptions);
 };
 
 // ===========================================
-// API 라우트 (엔드포인트)
+// API 라우트
 // ===========================================
 
-/**
- * 헬스 체크 API
- * 서버가 정상 작동 중인지 확인
- * 
- * GET /api/health
- */
 app.get('/api/health', (req, res) => {
-  res.json({ 
-    success: true, 
-    message: 'Server is running',
-    timestamp: new Date().toISOString()
-  });
+  res.json({ success: true, message: 'Server Running' });
 });
 
-/**
- * 문의 폼 제출 API
- * 폼 데이터를 받아 이메일로 전송
- * 
- * POST /api/contact
- * 
- * Body:
- * - name: 이름 (필수)
- * - phone: 연락처 (필수)
- * - eventType: 행사 유형 (필수)
- * - message: 문의 내용 (필수)
- * - email: 이메일 (선택)
- * - company: 회사/기관 (선택)
- * - date: 행사 예정일 (선택)
- * - participants: 예상 인원 (선택)
- * - budget: 예산 (선택)
- */
-app.post('/api/contact',
-  // Rate Limiter 적용
-  contactLimiter,
-  apiLimiter,
-  // 입력값 검증 규칙
-  [
-    body('name').trim().notEmpty().withMessage('이름을 입력해주세요.').isLength({ max: 50 }),
-    body('phone').trim().notEmpty().withMessage('연락처를 입력해주세요.')
-      .matches(/^[0-9-+() ]+$/).withMessage('올바른 연락처 형식이 아닙니다.'),
-    body('eventType').trim().notEmpty().withMessage('행사 유형을 선택해주세요.'),
-    body('message').trim().notEmpty().withMessage('문의 내용을 입력해주세요.')
-      .isLength({ max: 2000 }).withMessage('문의 내용은 2000자 이내로 작성해주세요.'),
-    body('email').optional().isEmail().withMessage('올바른 이메일 형식이 아닙니다.'),
-    body('company').optional().trim().isLength({ max: 100 }),
-    body('date').optional().trim(),
-    body('participants').optional().trim().isLength({ max: 50 }),
-    body('budget').optional().trim().isLength({ max: 50 }),
+app.post('/api/contact', contactLimiter, apiLimiter, [
+    body('name').trim().notEmpty(),
+    body('phone').trim().notEmpty(),
+    body('eventType').trim().notEmpty(),
+    body('message').trim().notEmpty(),
+    body('email').optional().isEmail(),
   ],
   async (req, res) => {
     try {
-      // 입력 검증 결과 확인
       const errors = validationResult(req);
-      if (!errors.isEmpty()) {
-        return res.status(400).json({
-          success: false,
-          message: errors.array()[0].msg,
-          errors: errors.array()
-        });
-      }
+      if (!errors.isEmpty()) return res.status(400).json({ success: false, message: errors.array()[0].msg });
 
-      // 문의 데이터 준비
-      const contactData = {
-        ...req.body,
-        clientIP: req.clientIP,
-        clientGeo: req.clientGeo
-      };
-
-      // 이메일 전송 (환경 변수가 설정된 경우만)
-      if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+      const contactData = { ...req.body, clientIP: req.clientIP, clientGeo: req.clientGeo };
+      
+      if (process.env.EMAIL_USER) {
         await sendContactEmail(contactData);
-        console.log(`✉️ 이메일 전송 완료: ${contactData.name}`);
-      } else {
-        // 이메일 설정 안 된 경우 로그만 출력
-        console.log(`📝 문의 접수 (이메일 미설정):`, contactData);
       }
-
-      // 성공 응답
-      res.json({
-        success: true,
-        message: '문의가 성공적으로 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.'
-      });
-
+      res.json({ success: true, message: '문의가 접수되었습니다.' });
     } catch (error) {
-      console.error('문의 폼 에러:', error);
-      res.status(500).json({
-        success: false,
-        message: '서버 오류가 발생했습니다. 잠시 후 다시 시도해주세요.'
-      });
+      console.error(error);
+      res.status(500).json({ success: false, message: '서버 에러' });
     }
   }
 );
 
-// ===========================================
-// 에러 핸들링
-// ===========================================
-
-/**
- * 404 에러 핸들러 (API 경로만 처리)
- * 존재하지 않는 API 경로로 요청 시
- */
+// API 404
 app.use('/api', (req, res) => {
-  res.status(404).json({
-    success: false,
-    message: '요청하신 API를 찾을 수 없습니다.',
-    code: 'NOT_FOUND'
-  });
+  res.status(404).json({ success: false, message: 'API Not Found' });
 });
 
-/**
- * SPA 라우팅 처리 (모든 비 API 요청을 index.html로)
- * React Router가 클라이언트 사이드에서 라우팅을 처리하도록 함
- */
+// ===========================================
+// SPA Fallback & Error Handling
+// ===========================================
+
+// SPA Fallback
 app.get(/(.*)/, (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist/index.html'));
-});
-
-/**
- * 전역 에러 핸들러
- * 처리되지 않은 모든 에러를 잡음
- */
-app.use((err, req, res, next) => {
-  console.error('서버 에러:', err);
-  
-  // CORS 에러 처리
-  if (err.message === 'CORS 정책에 의해 차단됨') {
-    return res.status(403).json({
-      success: false,
-      message: 'CORS 정책 위반',
-      code: 'CORS_ERROR'
-    });
+  // 정적 파일 요청이 실패해서 여기까지 왔다면 404 처리 (MIME type 오류 방지)
+  if (req.path.startsWith('/assets') || req.path.includes('.')) {
+    console.warn(`⚠️ Missing Asset: ${req.path}`);
+    return res.status(404).send('Not Found');
   }
-
-  // 기타 서버 에러
-  res.status(500).json({
-    success: false,
-    message: '서버 내부 오류가 발생했습니다.',
-    code: 'SERVER_ERROR'
-  });
+  // 그 외에는 index.html 서빙 (Client-Side Routing)
+  res.sendFile(path.join(distPath, 'index.html'));
 });
 
-// ===========================================
-// 서버 시작
-// ===========================================
+// Global Error Handler
+app.use((err, req, res, next) => {
+  console.error(err);
+  if (err.message === 'CORS 정책에 의해 차단됨') {
+    return res.status(403).json({ success: false, message: 'CORS Error' });
+  }
+  res.status(500).json({ success: false, message: 'Server Error' });
+});
 
 app.listen(PORT, () => {
-  console.log(`
-╔═══════════════════════════════════════════════════════╗
-║                                                       ║
-║   🚀 해피라이트 백엔드 서버                            ║
-║                                                       ║
-║   포트: ${PORT}                                          ║
-║   상태: 실행 중                                        ║
-║                                                       ║
-║   🛡️  보안 기능:                                       ║
-║   ✓ DDoS 방어 (Rate Limiting)                        ║
-║   ✓ 중국/홍콩 IP 차단                                 ║
-║   ✓ 해외 IP 강화 제한                                 ║
-║   ✓ Helmet 보안 헤더                                  ║
-║   ✓ CORS 정책                                         ║
-║   ✓ 입력값 검증                                       ║
-║                                                       ║
-╚═══════════════════════════════════════════════════════╝
-  `);
+  console.log(`Server running on port ${PORT}`);
+  console.log(`Static files mapped to: ${distPath}`);
 });
 
-// 다른 파일에서 테스트용으로 사용할 수 있도록 내보내기
 module.exports = app;
-
