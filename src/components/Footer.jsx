@@ -128,6 +128,9 @@ function Footer() {
                 <a href="https://tv.naver.com/gwangjufirst" className="social-link" aria-label="Naver Clip" target="_blank" rel="noopener noreferrer">
                   <Tv size={18} />
                 </a>
+                <a href="https://open.kakao.com/o/svQrVCw" className="social-link" aria-label="KakaoTalk" target="_blank" rel="noopener noreferrer">
+                  <MessageCircle size={18} />
+                </a>
               </div>
             </div>
 
