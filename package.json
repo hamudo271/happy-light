@@ -9,6 +9,7 @@
     "dev": "vite",
     "start": "node server/index.cjs",
     "build": "vite build",
+    "postinstall": "npm run build",
     "preview": "vite preview"
   },
   "dependencies": {
