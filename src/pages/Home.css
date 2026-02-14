@@ -20,12 +20,15 @@
   object-fit: cover;
   position: absolute;
   inset: 0;
+<<<<<<< HEAD
   animation: hero-zoom 20s ease-out infinite alternate;
 }
 
 @keyframes hero-zoom {
   from { transform: scale(1); }
   to { transform: scale(1.1); }
+=======
+>>>>>>> b6a67abb808c79e746d855bb41d1a592f988fdc9
 }
 
 .hero-overlay {
@@ -218,6 +221,12 @@
 /* About Section */
 .about-section {
   background: var(--color-bg-secondary);
+<<<<<<< HEAD
+=======
+
+  background-size: 400px;
+  background-blend-mode: soft-light;
+>>>>>>> b6a67abb808c79e746d855bb41d1a592f988fdc9
   padding: 9rem 0;
 }
 

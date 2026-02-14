@@ -71,30 +71,33 @@ const portfolioItems = [
   {
     title: '삼성전자 체육대회',
     category: '기업행사',
-    image: import.meta.env.BASE_URL + 'portfolio/samsung/samsung-sports.jpg',
+    image: import.meta.env.BASE_URL + '해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_12.jpg',
     size: 'large'
   },
   {
     title: '현대자동차 팀빌딩',
     category: '팀빌딩',
-    image: import.meta.env.BASE_URL + 'portfolio/recreation/hyundai-teambuilding.jpg',
+    image: import.meta.env.BASE_URL + '해피라이트/레크레이션/1555984699091.jpg',
     size: 'medium'
   },
   {
     title: '서울초 가을운동회',
     category: '학교행사',
-    image: import.meta.env.BASE_URL + 'portfolio/recreation/school-sports.jpg',
+    image: import.meta.env.BASE_URL + '해피라이트/레크레이션/1478390046277.jpg',
     size: 'small'
   },
   {
     title: '네이버 골든벨',
     category: '골든벨',
-    image: import.meta.env.BASE_URL + 'portfolio/samsung/naver-goldenbell.jpg',
+    image: import.meta.env.BASE_URL + '해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_28.jpg',
     size: 'small'
   },
 ]
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b6a67abb808c79e746d855bb41d1a592f988fdc9
 const partners = [
   '삼성전자', 'LG전자', '현대자동차', 'SK', 'CJ', '롯데', 
   '네이버', '카카오', '쿠팡', '배달의민족', 'KT', 'POSCO'
@@ -332,7 +335,7 @@ function Home() {
             style={{ marginTop: '5rem', display: 'flex', justifyContent: 'center', width: '100%' }}
           >
             <img 
-              src={`${import.meta.env.BASE_URL}services-special.png`} 
+              src={`${import.meta.env.BASE_URL}image 2.png`} 
               alt="Special Event" 
               loading="lazy"
               style={{ 
