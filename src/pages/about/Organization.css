@@ -1,0 +1,133 @@
+/* Organization Chart */
+.org-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.org-team {
+  background: var(--gradient-card);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+.org-team-ceo {
+  max-width: 400px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  background: linear-gradient(145deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 107, 53, 0.02) 100%);
+  border-color: rgba(255, 107, 53, 0.2);
+}
+
+.org-team-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.org-team-header svg {
+  color: var(--color-accent-primary);
+}
+
+.org-team-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.org-members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.org-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--radius-md);
+  transition: var(--transition-base);
+  min-width: 140px;
+}
+
+.org-member:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-4px);
+}
+
+.org-member-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255, 107, 53, 0.3);
+}
+
+.org-member-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.org-member-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.org-member-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.org-member-position {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* CEO specific */
+.org-team-ceo .org-member-image {
+  width: 120px;
+  height: 120px;
+  border-color: var(--color-accent-primary);
+  border-width: 3px;
+}
+
+.org-team-ceo .org-member-name {
+  font-size: 1.25rem;
+}
+
+/* Teams Layout */
+.org-chart > .org-team:not(.org-team-ceo) {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .org-member {
+    min-width: 120px;
+    padding: 1rem;
+  }
+  
+  .org-member-image {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .org-team-ceo .org-member-image {
+    width: 100px;
+    height: 100px;
+  }
+}
+
