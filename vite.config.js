@@ -23,6 +23,7 @@
 
 // Vite 설정 함수
 import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 const isGHDeplpoy = process.env.NODE_ENV === 'production' && !process.env.RAILWAY_ENVIRONMENT && !process.env.PORT;
 
 export default defineConfig({
