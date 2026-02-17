@@ -13,7 +13,7 @@ const servicesData = {
     subtitle: '품격 있는 공식 의전의 완성',
     desc: '기공식, 준공식, 창립기념일, 취임식 등 기업과 기관의 중요한 공식 행사를 품격 있게 기획하고 진행합니다. 20년 이상의 경험을 바탕으로 프로토콜에 맞는 완벽한 의전 서비스를 제공합니다.',
     color: '#ff6b35',
-    image: import.meta.env.BASE_URL + '해피라이트/결혼식관련/KakaoTalk_20250905_170758737.jpg',
+    image: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
     features: [
       '공식 의전 프로토콜 준수',
       '고급 무대 및 장비 설치',
@@ -30,7 +30,7 @@ const servicesData = {
     subtitle: '성공적인 기업 이벤트의 시작',
     desc: '송년회, 시무식, 워크샵, 세미나 등 기업의 다양한 행사를 전문적으로 기획합니다. 기업 문화와 목적에 맞는 맞춤형 프로그램으로 임직원 모두가 만족하는 행사를 만들어 드립니다.',
     color: '#7c3aed',
-    image: import.meta.env.BASE_URL + '해피라이트/0__250930/1749938810992.jpg',
+    image: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
     features: [
       '기업 맞춤형 프로그램 기획',
       '전문 MC 및 진행자 배치',
@@ -47,7 +47,7 @@ const servicesData = {
     subtitle: '조직의 시너지를 높이는 특별한 경험',
     desc: '조직의 화합과 소통 강화를 위한 다양한 팀빌딩 프로그램을 제공합니다. 실내외 다양한 활동을 통해 팀워크를 강화하고 조직 문화를 개선합니다.',
     color: '#06d6a0',
-    image: import.meta.env.BASE_URL + '해피라이트/레크레이션/1535137644533.jpg',
+    image: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
     features: [
       '조직 진단 기반 맞춤 설계',
       '다양한 실내외 활동',
@@ -64,7 +64,7 @@ const servicesData = {
     subtitle: '건강한 조직문화의 시작',
     desc: '임직원 화합과 건강한 조직문화 형성을 위한 체육대회를 전문적으로 기획합니다. 다양한 종목과 프로그램으로 모든 참가자가 즐길 수 있는 행사를 만들어 드립니다.',
     color: '#00d4ff',
-    image: import.meta.env.BASE_URL + '해피라이트/레크레이션/1505922847609.jpg',
+    image: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
     features: [
       '맞춤형 종목 구성',
       '전문 심판 및 진행 요원',
@@ -81,7 +81,7 @@ const servicesData = {
     subtitle: '학생들의 추억을 만드는 특별한 순간',
     desc: '초등학교 운동회부터 대학 축제까지, 학교의 다양한 행사를 안전하고 즐겁게 기획합니다. 교육적 가치와 재미를 모두 갖춘 프로그램을 제공합니다.',
     color: '#f72585',
-    image: import.meta.env.BASE_URL + '해피라이트/레크레이션/1478390046277.jpg',
+    image: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
     features: [
       '학년별 맞춤 프로그램',
       '안전한 행사 진행',
@@ -98,7 +98,7 @@ const servicesData = {
     subtitle: '성공적인 전시와 컨벤션의 파트너',
     desc: '전시회, 박람회, 컨벤션 등 대규모 행사의 기획부터 운영까지 원스톱 서비스를 제공합니다. 효과적인 전시 연출과 참관객 관리로 성공적인 행사를 만들어 드립니다.',
     color: '#ffd700',
-    image: import.meta.env.BASE_URL + '해피라이트/0__250930/1749938629701.jpg',
+    image: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
     features: [
       '전시 공간 디자인',
       '부스 설계 및 시공',
@@ -115,7 +115,7 @@ const servicesData = {
     subtitle: '참여와 재미가 넘치는 퀴즈쇼',
     desc: 'TV 프로그램 형식의 골든벨 퀴즈쇼를 기업, 학교, 단체에 맞게 기획합니다. 맞춤형 문제 제작과 전문 진행으로 참가자 모두가 즐기는 행사를 만들어 드립니다.',
     color: '#ff6b35',
-    image: import.meta.env.BASE_URL + '해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_05.jpg',
+    image: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
     features: [
       '맞춤형 문제 제작',
       '전문 MC 진행',
@@ -132,7 +132,7 @@ const servicesData = {
     subtitle: '모두가 하나되는 즐거운 시간',
     desc: '학생, 성인, 가족 등 다양한 대상에 맞는 레크레이션 프로그램을 제공합니다. 전문 레크레이션 강사가 참가자 모두가 즐길 수 있는 프로그램을 진행합니다.',
     color: '#7c3aed',
-    image: import.meta.env.BASE_URL + '해피라이트/레크레이션/1477559387430.jpg',
+    image: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
     features: [
       '대상별 맞춤 프로그램',
       '전문 레크레이션 강사',
@@ -149,7 +149,7 @@ const servicesData = {
     subtitle: '일생에 단 한 번뿐인 소중한 순간',
     desc: '부모님의 은혜에 감사하는 팔순/칠순 잔치부터 새로운 출발을 알리는 결혼식 사회까지, 가족의 소중한 행사를 진심을 담아 진행합니다. 품격 있는 진행으로 감동과 기쁨을 선사합니다.',
     color: '#fb7185',
-    image: import.meta.env.BASE_URL + '해피라이트/결혼식관련/KakaoTalk_20250905_170758737.jpg',
+    image: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
     features: [
       '주인공 맞춤형 식순 기획',
       '품격 있는 전문 사회자',

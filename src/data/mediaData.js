@@ -1191,8 +1191,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.9',
     views: 3672,
-    thumbnail: '/해피라이트/0__250930/1746935951306-2.jpg',
-    videoUrl: '/해피라이트/0__250930/2025_06_15 06_57.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 2,
@@ -1200,8 +1200,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.11',
     views: 4931,
-    thumbnail: '/해피라이트/0__250930/1749938121866.jpg',
-    videoUrl: '/해피라이트/0__250930/2025_06_15 07_04.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 3,
@@ -1209,8 +1209,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.10',
     views: 4759,
-    thumbnail: '/해피라이트/0__250930/1749938629701.jpg',
-    videoUrl: '/해피라이트/0__250930/2025_06_15 07_05.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 4,
@@ -1218,8 +1218,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.1',
     views: 2161,
-    thumbnail: '/해피라이트/0__250930/1749938635046.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250902_104115575_03/KakaoTalk_20250902_104103042.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 5,
@@ -1227,8 +1227,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.7',
     views: 1998,
-    thumbnail: '/해피라이트/0__250930/1749938749137.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250902_104115575_03/KakaoTalk_20250902_104114177.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 6,
@@ -1236,8 +1236,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.10',
     views: 1229,
-    thumbnail: '/해피라이트/0__250930/1749938770008.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104116602.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 7,
@@ -1245,8 +1245,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.8',
     views: 3193,
-    thumbnail: '/해피라이트/0__250930/1749938810992.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104120257.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 8,
@@ -1254,8 +1254,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.1',
     views: 2919,
-    thumbnail: '/해피라이트/0__250930/IMG_20241224_225346_130.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104125015.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 9,
@@ -1263,8 +1263,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.7',
     views: 4540,
-    thumbnail: '/해피라이트/0__250930/beauty_20250614192324.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104126145.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 10,
@@ -1272,8 +1272,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.2',
     views: 5436,
-    thumbnail: '/해피라이트/KakaoTalk_20250902_104115575_03/KakaoTalk_20250902_104115575.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104130342.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 11,
@@ -1281,8 +1281,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.11',
     views: 1464,
-    thumbnail: '/해피라이트/KakaoTalk_20250902_104115575_03/KakaoTalk_20250902_104115575_01.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104130994.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 12,
@@ -1290,8 +1290,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.7',
     views: 4286,
-    thumbnail: '/해피라이트/KakaoTalk_20250902_104115575_03/KakaoTalk_20250902_104115575_02.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104136373.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 13,
@@ -1299,8 +1299,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.12',
     views: 3610,
-    thumbnail: '/해피라이트/KakaoTalk_20250902_104115575_03/KakaoTalk_20250902_104115575_03.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104143722.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 14,
@@ -1308,8 +1308,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.5',
     views: 3356,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_04.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104150682.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 15,
@@ -1317,8 +1317,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.12',
     views: 3208,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_05.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104156570.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 16,
@@ -1326,8 +1326,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.3',
     views: 1178,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_06.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104201785.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 17,
@@ -1335,8 +1335,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.8',
     views: 5932,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_07.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104210475.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 18,
@@ -1344,8 +1344,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.11',
     views: 3440,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_08.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104212895.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 19,
@@ -1353,8 +1353,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.4',
     views: 1241,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_09.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104216842.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 20,
@@ -1362,8 +1362,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.5',
     views: 1148,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_10.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104227206.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 21,
@@ -1371,8 +1371,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.3',
     views: 2901,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_11.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104227930.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 22,
@@ -1380,8 +1380,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.4',
     views: 4536,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_12.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_151837146.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 23,
@@ -1389,8 +1389,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.11',
     views: 4069,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_13.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_151838386.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 24,
@@ -1398,8 +1398,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.3',
     views: 4266,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_14.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_151843760.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 25,
@@ -1407,8 +1407,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.8',
     views: 4064,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_15.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_151849155.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 26,
@@ -1416,8 +1416,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.9',
     views: 3806,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_16.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_151852401.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 27,
@@ -1425,8 +1425,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.3',
     views: 4807,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_17.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_151855178.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 28,
@@ -1434,8 +1434,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.8',
     views: 2521,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_18.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_151905086.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 29,
@@ -1443,8 +1443,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.5',
     views: 4933,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_19.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_151907573.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 30,
@@ -1452,8 +1452,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.12',
     views: 1524,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_20.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_151909454.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 31,
@@ -1461,8 +1461,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.8',
     views: 5388,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_21.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_151918185.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 32,
@@ -1470,8 +1470,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.6',
     views: 2494,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_22.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_151920273.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 33,
@@ -1479,8 +1479,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.6',
     views: 4393,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_23.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_151933235.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 34,
@@ -1488,8 +1488,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.7',
     views: 1228,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_24.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_152809211.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 35,
@@ -1497,8 +1497,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.9',
     views: 5862,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_25.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_152829804.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 36,
@@ -1506,8 +1506,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.2',
     views: 4824,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_26.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153208500.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 37,
@@ -1515,8 +1515,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.7',
     views: 4506,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_27.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153214679.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 38,
@@ -1524,8 +1524,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.2',
     views: 4874,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_28.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153219012.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 39,
@@ -1533,8 +1533,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.10',
     views: 1455,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104115575_29.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153220373.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 40,
@@ -1542,8 +1542,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.12',
     views: 4185,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153228428.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 41,
@@ -1551,8 +1551,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.3',
     views: 2537,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_01.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153230684.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 42,
@@ -1560,8 +1560,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.5',
     views: 4876,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_02.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153233724.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 43,
@@ -1569,8 +1569,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.6',
     views: 1174,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_03.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153236715.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 44,
@@ -1578,8 +1578,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.7',
     views: 5972,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_04.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153240259.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 45,
@@ -1587,8 +1587,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.4',
     views: 5912,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_05.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153619500.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 46,
@@ -1596,8 +1596,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.4',
     views: 5654,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_06.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153655509.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 47,
@@ -1605,8 +1605,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.9',
     views: 1061,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_07.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153731340.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 48,
@@ -1614,8 +1614,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.4',
     views: 3598,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_08.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153733580.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 49,
@@ -1623,8 +1623,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.11',
     views: 2763,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_09.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153810388.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 50,
@@ -1632,8 +1632,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.12',
     views: 2560,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_10.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153813724.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 51,
@@ -1641,8 +1641,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.1',
     views: 3395,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_11.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153818011.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 52,
@@ -1650,8 +1650,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.11',
     views: 1238,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_12.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153818987.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 53,
@@ -1659,8 +1659,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.10',
     views: 2255,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_13.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153825878.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 54,
@@ -1668,8 +1668,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.4',
     views: 5079,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_14.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153826410.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 55,
@@ -1677,8 +1677,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.9',
     views: 2467,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_15.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153832552.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 56,
@@ -1686,8 +1686,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.8',
     views: 4418,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_16.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250905_153835053.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 57,
@@ -1695,8 +1695,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.3',
     views: 3901,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_17.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250908_155902360/KakaoTalk_20250905_153835053.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 58,
@@ -1704,8 +1704,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.11',
     views: 2581,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_18.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250908_155902360/KakaoTalk_20250905_153841862.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 59,
@@ -1713,8 +1713,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.4',
     views: 5716,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_19.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250908_155902360/KakaoTalk_20250905_170118014.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 60,
@@ -1722,8 +1722,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.3',
     views: 3119,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_20.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250908_155902360/KakaoTalk_20250905_170118445.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 61,
@@ -1731,8 +1731,8 @@ export const videos = [
     category: '기업행사',
     date: '2024.6',
     views: 2281,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_21.jpg',
-    videoUrl: '/해피라이트/KakaoTalk_20250908_155902360/KakaoTalk_20250908_155902360.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 62,
@@ -1740,8 +1740,8 @@ export const videos = [
     category: '공식의전',
     date: '2024.1',
     views: 2991,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_22.jpg',
-    videoUrl: '/해피라이트/결혼식관련/KakaoTalk_20250905_170758121.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 63,
@@ -1749,8 +1749,8 @@ export const videos = [
     category: '공식의전',
     date: '2024.4',
     views: 3548,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_28.jpg',
-    videoUrl: '/해피라이트/결혼식관련/KakaoTalk_20250905_170759251.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 64,
@@ -1758,8 +1758,8 @@ export const videos = [
     category: '공식의전',
     date: '2024.11',
     views: 5590,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104124578_29.jpg',
-    videoUrl: '/해피라이트/결혼식관련/KakaoTalk_20250905_170809626.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 65,
@@ -1767,8 +1767,8 @@ export const videos = [
     category: '공식의전',
     date: '2024.10',
     views: 1982,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104126204.jpg',
-    videoUrl: '/해피라이트/결혼식관련/KakaoTalk_20250905_170812100.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 66,
@@ -1776,8 +1776,8 @@ export const videos = [
     category: '공식의전',
     date: '2024.3',
     views: 5264,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104126204_01.jpg',
-    videoUrl: '/해피라이트/결혼식관련/KakaoTalk_20250905_173332209.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 67,
@@ -1785,8 +1785,8 @@ export const videos = [
     category: '공식의전',
     date: '2024.3',
     views: 5649,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250902_104126204_02.jpg',
-    videoUrl: '/해피라이트/결혼식관련/KakaoTalk_20250905_173338057.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 68,
@@ -1794,8 +1794,8 @@ export const videos = [
     category: '공식의전',
     date: '2024.2',
     views: 3253,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250904_134402844.jpg',
-    videoUrl: '/해피라이트/결혼식관련/KakaoTalk_20250905_173341303.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 69,
@@ -1803,8 +1803,8 @@ export const videos = [
     category: '공식의전',
     date: '2024.7',
     views: 3944,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250904_134402844_01.jpg',
-    videoUrl: '/해피라이트/결혼식관련/KakaoTalk_20250905_173416885.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 70,
@@ -1812,8 +1812,8 @@ export const videos = [
     category: '공식의전',
     date: '2024.6',
     views: 3932,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250904_134402844_02.jpg',
-    videoUrl: '/해피라이트/결혼식관련/KakaoTalk_20250905_173423514.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 71,
@@ -1821,8 +1821,8 @@ export const videos = [
     category: '공식의전',
     date: '2024.10',
     views: 5020,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250904_134402844_03.jpg',
-    videoUrl: '/해피라이트/결혼식관련/KakaoTalk_20250905_173426213.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 72,
@@ -1830,8 +1830,8 @@ export const videos = [
     category: '공식의전',
     date: '2024.7',
     views: 5204,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250904_134402844_04.jpg',
-    videoUrl: '/해피라이트/결혼식관련/KakaoTalk_20250905_173442937.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
   {
     id: 73,
@@ -1839,7 +1839,7 @@ export const videos = [
     category: '공식의전',
     date: '2024.2',
     views: 3259,
-    thumbnail: '/해피라이트/KakaoTalk_20250905_153826410/KakaoTalk_20250904_134402844_05.jpg',
-    videoUrl: '/해피라이트/결혼식관련/KakaoTalk_20250905_173445897.mp4'
+    thumbnail: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`,
+    videoUrl: `${import.meta.env.BASE_URL}images/portfolio-sample-1.jpg`
   },
 ];
